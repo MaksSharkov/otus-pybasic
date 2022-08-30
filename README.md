@@ -1,3 +1,4 @@
+[![Test status](https://github.com/MaksSharkov/otus-pybasic/actions/workflows/run_tests.yml/badge.svg?branch=master)](https://github.com/MaksSharkov/otus-pybasic/actions/workflows/run_tests.yml)
 # Шарков Максим
 Курс - Python Developer. Basic
 
