@@ -8,7 +8,7 @@
 
 
 ## Completed
-- [ ]  Homework_1
+- [x]  Homework_1
 - [ ]  Homework_2
 - [ ]  Homework_3
 - [ ]  Homework_4
