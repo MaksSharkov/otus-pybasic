@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  pg:
+    container_name: "homework_04"
+    image: postgres
+    environment:
+      POSTGRES_DB: homework_04
+      POSTGRES_USER: makssh
+      POSTGRES_PASSWORD: derporol
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
