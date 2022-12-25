@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  About
+  Домашки
 {% endblock %}
 
 {% block body %}
@@ -20,7 +20,7 @@
             {% elif homework.status == 1 %} class="table-warning"
             {% else %} class="table-secondary"
             {% endif %}>
-          <th scope="row">{{ homework.num }}</th>
+          <th scope="row">{{ homework.id }}</th>
           <th scope="row">{{ homework.name }}</th>
           <th scope="row"> {% if homework.status == 2 %} Успешно выполнено
             {% elif homework.status == 1 %} Сдано на проверку

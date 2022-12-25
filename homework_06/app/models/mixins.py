@@ -25,6 +25,3 @@ class BaseMixin:
         return f"{cls.__name__.lower()}s"
 
     id = Column(Integer, primary_key=True)
-
-    def __repr__(self):
-        return str(self)
