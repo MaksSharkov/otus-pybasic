@@ -15,7 +15,7 @@ app.config.update(
         os.environ.get("SQLALCHEMY_DATABASE_URI")
         or "postgresql+psycopg2://makssh:asdf1234@localhost:5432/homework"
     ),
-    SQLALCHEMY_ECHO=True,
+    SQLALCHEMY_ECHO=(os.environ.get("SQLALCHEMY_ECHO") or False),
 )
 db.init_app(app)
 migrate = Migrate(app, db)

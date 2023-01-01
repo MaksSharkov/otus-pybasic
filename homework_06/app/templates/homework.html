@@ -6,28 +6,32 @@
 
 {% block body %}
   <h1>Статус выполнения домашних работ:</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Название</th>
-        <th scope="col">Статус</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for homework in homeworks %}
-        <tr {% if homework.status == 2 %} class="table-success"
-            {% elif homework.status == 1 %} class="table-warning"
-            {% else %} class="table-secondary"
-            {% endif %}>
-          <th scope="row">{{ homework.id }}</th>
-          <th scope="row">{{ homework.name }}</th>
-          <th scope="row"> {% if homework.status == 2 %} Успешно выполнено
-            {% elif homework.status == 1 %} Сдано на проверку
-            {% else %} Не выполнено
-            {% endif %}</th>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <div style="margin: 1rem 2rem;">
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+            <th scope="col">Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for homework in homeworks %}
+            <tr {% if homework.status == "Сдано" %} class="table-success"
+                {% elif homework.status == "Отправлено" %} class="table-warning"
+                {% else %} class="table-secondary"
+                {% endif %}>
+              <th scope="row">{{ homework.id }}</th>
+              <th scope="row">{{ homework.name }}</th>
+              <th scope="row">{{ homework.status }}</th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <a href="{{ url_for('homework_app.add_homework') }}" class="btn btn-outline-primary" tabindex="-1" role="button">Добавить задание</a>
+    </div>
+  </div>
 {% endblock %}

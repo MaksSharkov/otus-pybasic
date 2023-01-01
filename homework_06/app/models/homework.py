@@ -13,4 +13,4 @@ from .mixins import (
 
 class Homework(db.Model, BaseMixin, CreatedMixin):
     name = Column(String(100))
-    status = Column(Integer)
+    status = Column(String(100))

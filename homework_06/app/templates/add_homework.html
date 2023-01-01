@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Домашки
+{% endblock %}
+
+{% block body %}
+  <h1>Добавление домашней работы:</h1>
+  <div style="margin: 1rem 2rem;">
+    <form method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Название домашней работы</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Статус</label>
+        <select class="form-select" id="status" name="status">
+          <option selected value="Не сдано">Не сдано</option>
+          <option value="Отправлено">Отправлено</option>
+          <option value="Сдано">Сдано</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+  </div>
+{% endblock %}
