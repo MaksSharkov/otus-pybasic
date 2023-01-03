@@ -1,18 +1,20 @@
 {% extends "root.html" %}
 
 {% block body %}
-    <h1>Список секретов:</h1>
+    <h1>{{ object.name }}</h1>
+    <p>
+        <a class="btn btn-secondary mb-3" href="{% url 'project_update' pk=object.id %}" role="button">Изменить проект</a>
+    <a class="btn btn-danger mb-3" href="{% url 'project_delete' pk=object.id %}" role="button">Удалить проект</a>
+    </p>
     <table border="2">
         <tr style="background-color: lightblue; font-weight: bold;">
-            <td>Проект</td>
             <td>Имя</td>
             <td>Значение</td>
             <td>Описание</td>
             <td>Тип</td>
         </tr>
-        {% for secret in secrets %}
+        {% for secret in project.secret_set.all %}
             <tr>
-                <td>{{ secret.project.name }}</td>
                 <td>{{ secret.name }}</td>
                 <td>{{ secret.value }}</td>
                 <td>{{ secret.desc }}</td>

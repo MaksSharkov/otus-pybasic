@@ -15,11 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
-from storage.views import storage_get_index
+from storage import views
 
 urlpatterns = [
-    path("", storage_get_index),
+    path("", RedirectView.as_view(pattern_name="projects", permanent=True)),
     path("admin/", admin.site.urls),
+    path("projects/", views.ProjectListView.as_view(), name="projects"),
+    path("projects/create/", views.ProjectCreateView.as_view(), name="project_create"),
+    path(
+        "projects/update/<int:pk>/",
+        views.ProjectUpdateView.as_view(),
+        name="project_update",
+    ),
+    path(
+        "projects/delete/<int:pk>/",
+        views.ProjectDeleteView.as_view(),
+        name="project_delete",
+    ),
+    path("projects/<int:pk>/", views.ProjectDetailView.as_view(), name="project"),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
