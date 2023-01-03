@@ -13,8 +13,8 @@
 - [x]  Homework_3
 - [x]  Homework_4
 - [x]  Homework_5
-- [ ]  Homework_6
-- [ ]  Homework_7
+- [x]  Homework_6
+- [x]  Homework_7
 - [ ]  Homework_8
 - [ ]  Homework_9
 - [ ]  Homework_10
