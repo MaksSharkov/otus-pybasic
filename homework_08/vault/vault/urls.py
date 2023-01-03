@@ -35,5 +35,6 @@ urlpatterns = [
         name="project_delete",
     ),
     path("projects/<int:pk>/", views.ProjectDetailView.as_view(), name="project"),
+    path("secrets/create/", views.SecretCreateView.as_view(), name="secret_create"),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

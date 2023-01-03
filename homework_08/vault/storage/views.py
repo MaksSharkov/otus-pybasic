@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView,
 )
 from storage.models import Secret, Project
+from .forms import ProjectModelForm, SecretModelForm
 
 
 # Create your views here.
@@ -24,18 +25,25 @@ class ProjectDetailView(DetailView):
 class ProjectCreateView(CreateView):
     model = Project
     template_name = "projects/project_form.html"
-    fields = ("name",)
+    form_class = ProjectModelForm
     success_url = reverse_lazy("projects")
 
 
 class ProjectUpdateView(UpdateView):
     model = Project
     template_name = "projects/project_form.html"
-    fields = ("name",)
+    form_class = ProjectModelForm
     success_url = reverse_lazy("projects")
 
 
 class ProjectDeleteView(DeleteView):
     model = Project
     template_name = "projects/project_confirm_delete.html"
+    success_url = reverse_lazy("projects")
+
+
+class SecretCreateView(CreateView):
+    model = Secret
+    template_name = "secrets/secret_form.html"
+    form_class = SecretModelForm
     success_url = reverse_lazy("projects")
