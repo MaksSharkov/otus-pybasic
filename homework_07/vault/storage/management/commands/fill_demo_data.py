@@ -23,7 +23,11 @@ class Command(BaseCommand):
             name="Admin", value="P@rol1", type=t_pass, project=p_otus
         )
         s_vanya = Secret.objects.create(
-            name="Vanya", value="P@rol2", type=t_pass, project=p_otus, desc="Some description"
+            name="Vanya",
+            value="P@rol2",
+            type=t_pass,
+            project=p_otus,
+            desc="Some description",
         )
         s_maks = Secret.objects.create(
             name="Maks",
@@ -32,6 +36,10 @@ class Command(BaseCommand):
             project=p_maks,
         )
         s_anon = Secret.objects.create(
-            name="anon", value="anon", type=t_other, project=p_anonymous, desc="We are Anonymous!"
+            name="anon",
+            value="anon",
+            type=t_other,
+            project=p_anonymous,
+            desc="We are Anonymous!",
         )
         print("Fill db complete...")
