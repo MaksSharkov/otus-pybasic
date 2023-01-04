@@ -35,6 +35,20 @@ urlpatterns = [
         name="project_delete",
     ),
     path("projects/<int:pk>/", views.ProjectDetailView.as_view(), name="project"),
-    path("secrets/create/", views.SecretCreateView.as_view(), name="secret_create"),
+    path(
+        "projects/<int:project_pk>/secrets/create/",
+        views.SecretCreateView.as_view(),
+        name="secret_create",
+    ),
+    path(
+        "projects/<int:project_pk>/secrets/delete/<int:pk>",
+        views.SecretDeleteView.as_view(),
+        name="secret_delete",
+    ),
+    path(
+        "projects/<int:project_pk>/secrets/update/<int:pk>",
+        views.SecretUpdateView.as_view(),
+        name="secret_update",
+    ),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

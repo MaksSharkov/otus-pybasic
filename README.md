@@ -14,8 +14,8 @@
 - [x]  Homework_4
 - [x]  Homework_5
 - [x]  Homework_6
-- [ ]  Homework_7
-- [ ]  Homework_8
+- [x]  Homework_7
+- [x]  Homework_8
 - [ ]  Homework_9
 - [ ]  Homework_10
 - [ ]  Homework_11

@@ -5,7 +5,7 @@
     <p>
         <a class="btn btn-secondary mb-3" href="{% url 'project_update' pk=object.id %}" role="button">Изменить проект</a>
         <a class="btn btn-danger mb-3" href="{% url 'project_delete' pk=object.id %}" role="button">Удалить проект</a>
-        <a class="btn btn-primary mb-3" href="{% url 'secret_create' %}" role="button">Создать секрет</a>
+        <a class="btn btn-primary mb-3" href="{% url 'secret_create' project_pk=object.id %}" role="button">Создать секрет</a>
     </p>
     <table class="table table-striped table-bordered">
         <thead>
@@ -14,6 +14,7 @@
                 <th scope="col">Значение</th>
                 <th scope="col">Описание</th>
                 <th scope="col">Тип</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,20 @@
                     <th scope="row">{{ secret.value }}</th>
                     <th scope="row">{{ secret.desc }}</th>
                     <th scope="row">{{ secret.type.name }}</th>
+                    <th scope="row">
+                        <a class="btn btn-secondary"
+                           href="{% url 'secret_update' pk=secret.id project_pk=object.id %}"
+                           role="button"
+                           style="--bs-btn-padding-y: 0.1rem; --bs-btn-padding-x: 0.1rem; --bs-btn-font-size: 0.7rem;">
+                            Изменить
+                        </a>
+                        <a class="btn btn-danger"
+                           href="{% url 'secret_delete' pk=secret.id project_pk=object.id %}"
+                           role="button"
+                           style="--bs-btn-padding-y: 0.1rem; --bs-btn-padding-x: 0.1rem; --bs-btn-font-size: 0.7rem;">
+                            Удалить
+                        </a>
+                    </th>
                 </tr>
             {% endfor %}
         </tbody>

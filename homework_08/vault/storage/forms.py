@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Project, Secret, Type
 
 
@@ -13,6 +14,7 @@ class ProjectModelForm(forms.ModelForm):
 
 
 class SecretModelForm(forms.ModelForm):
+    def_project = Project.objects.all()
     name = forms.CharField(
         label="Название", widget=forms.TextInput(attrs={"class": "form-control"})
     )
@@ -24,11 +26,6 @@ class SecretModelForm(forms.ModelForm):
         label="Описание",
         widget=forms.Textarea(attrs={"class": "form-control", "rows": "3"}),
         required=False,
-    )
-    project = forms.ModelChoiceField(
-        queryset=Project.objects.all(),
-        label="Проект",
-        widget=forms.Select(attrs={"class": "form-select"}),
     )
     type = forms.ModelChoiceField(
         queryset=Type.objects.all(),
@@ -42,6 +39,5 @@ class SecretModelForm(forms.ModelForm):
             "name",
             "value",
             "desc",
-            "project",
             "type",
         )
