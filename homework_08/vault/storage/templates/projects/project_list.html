@@ -1,0 +1,15 @@
+{% extends "root.html" %}
+
+{% block body %}
+    <h3>Список Проектов:</h3>
+    <a class="btn btn-primary mb-3" href="{% url 'project_create' %}" role="button">Создать проект</a>
+    <div class="list-group">
+        {% for project in object_list %}
+            <a href="{% url 'project' pk=project.pk %}"
+               class="list-group-item list-group-item-action"
+               aria-current="true">
+                    <h5 class="mb-1">{{ project.name }}</h5>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
